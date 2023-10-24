@@ -62,6 +62,7 @@ describe(`Trigger event - ${eventTriggerPath} (POST)`, function () {
 
   describe(`Trigger Event - ${eventTriggerPath} (POST)`, function () {
     beforeEach(async () => {
+      process.env.LAUNCH_DARKLY_SDK_KEY = '';
       session = new UserSession();
       await session.initialize();
       template = await session.createTemplate();
@@ -2390,7 +2391,8 @@ describe(`Trigger event - ${eventTriggerPath} (POST)`, function () {
       });
     });
   });
-  describe.skip('Trigger Event - [IS_MULTI_PROVIDER_CONFIGURATION_ENABLED=true]', function () {
+
+  describe('Trigger Event - [IS_MULTI_PROVIDER_CONFIGURATION_ENABLED=true]', function () {
     beforeEach(async () => {
       process.env.IS_MULTI_PROVIDER_CONFIGURATION_ENABLED = 'true';
       process.env.LAUNCH_DARKLY_SDK_KEY = '';
